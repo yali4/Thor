@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Thor Template Engine v1.0.04 by Yalçın CEYLAN</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Thor Template Engine v1.0.04</h1>
+        <h2>Easy Template Engine for JavaScript</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/yali4/Thor/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/yali4/Thor/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/yali4/Thor" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+      
+        <p><strong>if you want to see latest example;</strong> <a href="example/index.html">click here.</a></p>
+
+<h1>
+<a name="foreach" class="anchor" href="#foreach"><span class="octicon octicon-link"></span></a>foreach</h1>
+<div class="highlight">
+<pre><span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="p">=</span><span class="s">"text/template"</span> <span class="n">id</span><span class="p">=</span><span class="s">"users"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">ul</span> <span class="nb">class</span><span class="p">=</span><span class="s">"users"</span><span class="o">&gt;</span>
+        <span class="p">@</span><span class="k">foreach</span><span class="p">(</span><span class="n">users</span> <span class="n">as</span> <span class="n">i</span><span class="p">:</span><span class="n">user</span><span class="p">);</span>
+            <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">user</span><span class="p">.</span><span class="n">first_name</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+        <span class="p">@</span><span class="k">endforeach</span><span class="p">;</span>
+    <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre>
+</div>
+<h1>
+
+<h1>
+<a name="while" class="anchor" href="#while"><span class="octicon octicon-link"></span></a>if, else, for, while</h1>
+<div class="highlight">
+<pre><span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="p">=</span><span class="s">"text/template"</span> <span class="n">id</span><span class="p">=</span><span class="s">"pagination"</span><span class="o">&gt;</span>
+    <span class="p">@</span><span class="k">if</span><span class="p">(</span><span class="n">paginate</span><span class="p">.</span><span class="nb">length</span><span class="p">);</span>
+        <span class="o">&lt;</span><span class="n">ul</span> <span class="nb">class</span><span class="p">=</span><span class="s">"pagination"</span><span class="o">&gt;</span>
+        <span class="p">@</span><span class="k">for</span><span class="p">(</span><span class="nb">var</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="p">=</span><span class="n">paginate</span><span class="p">.</span><span class="nb">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">);</span>
+            <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">i</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+        <span class="p">@</span><span class="k">endfor</span><span class="p">;</span>
+        <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+    <span class="p">@</span><span class="k">else</span><span class="p">;</span>
+        <span class="o">&lt;</span><span class="n">div</span> <span class="nb">class</span><span class="p">=</span><span class="s">"warning"</span><span class="o">&gt;</span><span class="n">page</span> <span class="nb">not</span> <span class="n">found</span><span class="p">.</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="p">@</span><span class="k">endif</span><span class="p">;</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre>
+</div>
+<h1>
+
+
+
+<h1>
+<a name="include" class="anchor" href="#include"><span class="octicon octicon-link"></span></a>include template</h1>
+<div class="highlight">
+<pre><span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="p">=</span><span class="s">"text/template"</span> <span class="n">id</span><span class="p">=</span><span class="s">"iterator"</span><span class="o">&gt;</span>
+    <span class="p">@</span><span class="k">foreach</span><span class="p">(</span><span class="n">users</span> <span class="n">as</span> <span class="n">i</span><span class="p">:</span><span class="n">user</span><span class="p">);</span>
+        <span class="p">@</span><span class="k">include</span><span class="p">(</span><span class="s">'users'</span><span class="p">,</span> <span class="n">user</span><span class="p">);</span>
+    <span class="p">@</span><span class="k">endforeach</span><span class="p">;</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre>
+</div>
+<h1>
+
+
+
+
+<h1>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h1>
+<ul>
+<li>Escape String</li>
+<li>Global Variables</li>
+<li>For, Foreach and While Loop</li>
+<li>If, Else and Endif Condition</li>
+<li>Including Another Template</li>
+<li>JavaScript Object Notation</li>
+</ul>
+<h1>
+
+
+
+
+<h1>
+<a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h1>
+
+<p>Hide Notification:</p>
+
+<p><small>if you don't want to see of performance reports use the this method</small></p>
+
+<div class="highlight">
+<pre><span class="n">Thor</span><span class="p">.</span><span class="n">HideNotification</span><span class="p">();</span>
+</pre>
+</div>
+
+<p>Show Notification:</p>
+
+<p><small>if you want to see of performance reports use the this method</small></p>
+
+<div class="highlight">
+<pre><span class="n">Thor</span><span class="p">.</span><span class="n">ShowNotification</span><span class="p">();</span>
+</pre>
+</div>
+
+<p>Set Global Attribute:</p>
+
+<p><small>if you want to access variables in everywhere use the this method</small></p>
+
+<div class="highlight">
+<pre><span class="n">Thor</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">'users'</span><span class="p">,</span> <span class="p">[]);</span>
+
+<span class="c1">// Or</span>
+
+<span class="n">Thor</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">({</span>
+    <span class="n">users</span> <span class="p">:</span> <span class="p">[],</span>
+    <span class="n">groups</span> <span class="p">:</span> <span class="p">[]</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<p>Get Global Attribute:</p>
+
+<div class="highlight">
+<pre><span class="n">Thor</span><span class="p">.</span><span class="n">GetAttribute</span><span class="p">(</span><span class="s">'attribute'</span><span class="p">);</span>
+</pre>
+<div>
+
+
+<p>Load Global Templates:</p>
+
+<p><small>if you want to use the template in otherwhere use the this method</small></p>
+
+<div class="highlight">
+<pre><span class="n">Thor</span><span class="p">.</span><span class="n">LoadTemplate</span><span class="p">(</span><span class="s">'users'</span><span class="p">);</span>
+
+<span class="c1">// Or</span>
+
+<span class="n">Thor</span><span class="p">.</span><span class="n">LoadTemplate</span><span class="p">(</span><span class="s">'users'</span><span class="p">,</span> <span class="s">'groups'</span><span class="p">);</span>
+</pre>
+<div>
+
+
+<h1>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h1>
+
+<h3>
+<a name="example-1-simple-usage" class="anchor" href="#example-1-simple-usage"><span class="octicon octicon-link"></span></a>Example 1 (Basic Usage)</h3>
+
+<p>Template:</p>
+
+<div class="highlight">
+<pre><span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="p">=</span><span class="s">"text/template"</span> <span class="n">id</span><span class="p">=</span><span class="s">"welcome"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Welcome</span><span class="p">,</span> <span class="p">{{</span> <span class="n">username</span> <span class="p">}}</span><span class="o">!&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre>
+</div>
+
+<p>JavaScript:</p>
+
+<div class="highlight">
+<pre><span class="c1">// if use the template this method,
+// this template can not be used any more</span>
+<span class="nb">var</span> <span class="n">Template</span> <span class="p">=</span> <span class="n">new</span> <span class="n">Thor</span><span class="p">.</span><span class="n">ReplaceTemplate</span><span class="p">(</span><span class="s">'welcome'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">username</span> <span class="p">:</span> <span class="s">'John Doe'</span>
+<span class="p">});</span>
+
+<span class="c1">// if want to replace only use the this method</span>
+<span class="n">Template</span><span class="p">.</span><span class="n">replace</span><span class="p">();</span>
+
+<span class="c1">// if want to source code as string, use the this method</span>
+<span class="n">Template</span><span class="p">.</span><span class="n">toString</span><span class="p">();</span>
+
+<span class="c1">// if want to use by parent container use the this method</span>
+<span class="n">Template</span><span class="p">.</span><span class="n">replaceParentNode</span><span class="p">(</span><span class="s">'div'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nb">class</span> <span class="p">:</span> <span class="s">'welcome-container'</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<h3>
+<a name="example-2-nested-iterate" class="anchor" href="#example-2-nested-iterate"><span class="octicon octicon-link"></span></a>Example 2 (Nested Iterate)</h3>
+
+<p>Template:</p>
+
+<div class="highlight">
+<pre><span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="p">=</span><span class="s">"text/template"</span> <span class="n">id</span><span class="p">=</span><span class="s">"user"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">ol</span> <span class="nb">class</span><span class="p">=</span><span class="s">"users"</span><span class="o">&gt;</span>
+        <span class="p">@</span><span class="k">foreach</span><span class="p">(</span><span class="n">users</span> <span class="n">as</span> <span class="n">uid</span><span class="p">:</span><span class="n">username</span><span class="p">);</span>
+            <span class="o">&lt;</span><span class="n">li</span> <span class="n">value</span><span class="p">=</span><span class="s">"{{ uid }}"</span><span class="o">&gt;</span><span class="p">{{{</span> <span class="n">username</span> <span class="p">}}}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+        <span class="p">@</span><span class="k">endforeach</span><span class="p">;</span>
+    <span class="o">&lt;/</span><span class="n">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="p">=</span><span class="s">"text/template"</span> <span class="n">id</span><span class="p">=</span><span class="s">"users"</span><span class="o">&gt;</span>
+    <span class="p">@</span><span class="k">foreach</span><span class="p">(</span><span class="n">groups</span> <span class="n">as</span> <span class="n">gid</span><span class="p">:</span><span class="n">params</span><span class="p">);</span>
+    <span class="o">&lt;</span><span class="n">ul</span> <span class="nb">class</span><span class="p">=</span><span class="s">"groups"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">span</span><span class="o">&gt;</span><span class="p">{{{</span> <span class="n">params</span><span class="p">.</span><span class="nb">title</span> <span class="p">}}}</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+            <span class="p">@</span><span class="k">if</span><span class="p">(</span><span class="n">params</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="nb">length</span><span class="p">);</span>
+                <span class="p">@</span><span class="k">include</span><span class="p">(</span><span class="s">'user'</span><span class="p">,</span> <span class="p">{</span> <span class="n">users</span> <span class="p">:</span> <span class="n">params</span><span class="p">.</span><span class="n">users</span> <span class="p">});</span>
+            <span class="p">@</span><span class="k">endif</span><span class="p">;</span>
+        <span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+    <span class="p">@</span><span class="k">endforeach</span><span class="p">;</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre>
+</div>
+
+
+<p>JavaScript:</p>
+<div class="highlight">
+<pre><span class="c1">// for include
+</span><span class="n">Thor</span><span class="p">.</span><span class="n">LoadTemplate</span><span class="p">(</span><span class="s">'user'</span><span class="p">);</span>
+
+<span class="c1">// render</span>
+<span class="c1">// if you want to use JSON, must be sent attributes as JSON</span>
+<span class="n">new</span> <span class="n">Thor</span><span class="p">.</span><span class="n">ReplaceTemplate</span><span class="p">(</span><span class="s">'users'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">groups</span> <span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nb">title</span> <span class="p">:</span> <span class="s">'Normal Users'</span><span class="p">,</span>
+            <span class="n">users</span> <span class="p">:</span> <span class="p">[</span><span class="s">'Alberta'</span><span class="p">,</span> <span class="s">'Adrienne'</span><span class="p">,</span> <span class="s">'Gaby'</span><span class="p">,</span> <span class="s">'Gaila'</span><span class="p">,</span> <span class="s">'Talia'</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nb">title</span> <span class="p">:</span> <span class="s">'Administrator'</span><span class="p">,</span>
+            <span class="n">users</span> <span class="p">:</span> <span class="p">[</span><span class="s">'Tashia'</span><span class="p">,</span> <span class="s">'Madison'</span><span class="p">,</span> <span class="s">'Calvin'</span><span class="p">,</span> <span class="s">'Caine'</span><span class="p">,</span> <span class="s">'Manton'</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}).</span><span class="n">replaceParentNode</span><span class="p">(</span><span class="s">'section'</span><span class="p">,</span> <span class="p">{</span> <span class="nb">class</span> <span class="p">:</span> <span class="s">'users-container'</span> <span class="p">});</span>
+</pre>
+</div>
+
+
+      </section>
+    </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54325735-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
