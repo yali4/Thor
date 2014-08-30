@@ -8,6 +8,8 @@
     
     Github : https://github.com/yali4/Thor
 
+    Official : http://thortemplate.com
+
     Latest Version : 1.0.04
 
  */
